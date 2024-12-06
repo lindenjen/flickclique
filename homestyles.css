@@ -1,0 +1,99 @@
+:root {
+    --primary: #ff4d6d;
+    --secondary: #4a4e69;
+    --background: #22223b;
+    --text: #f2e9e4;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .logo {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .title {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    color: var(--primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  .options-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .option-card {
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+  }
+
+  .option-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+
+  .button:hover {
+    background: #ff6b88;
+    transform: scale(1.05);
+  }
+
+  .input-code {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--primary);
+    border-radius: 25px;
+    padding: 0.8rem 1.5rem;
+    color: var(--text);
+    font-size: 1.1rem;
+    width: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .input-code::placeholder {
+    color: rgba(242,233,228,0.5);
+  }
