@@ -83,7 +83,7 @@
     transform: scale(1.05);
   }
 
-  .input-code {
+  .input-code, .input-name {
     background: rgba(255,255,255,0.1);
     border: 2px solid var(--primary);
     border-radius: 25px;
@@ -92,8 +92,18 @@
     font-size: 1.1rem;
     width: 200px;
     margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .input-code::placeholder {
+  .input-code::placeholder, .input-name::placeholder {
     color: rgba(242,233,228,0.5);
+  }
+
+  .error-message {
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    visibility: hidden;
   }

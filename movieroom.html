@@ -1,0 +1,36 @@
+<head><base href="." />
+    <meta charset="utf-8" />
+    <title>Flick Clique - Movie Watch Party Rooms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="movieroom.css">
+    <script src="movieroom.js"></script>
+    <link rel="icon" type="image/x-icon" href="flickcliquefavicon.png">
+</head>
+<body>
+  <div class="room-header">
+    <button id="backToHome" class="back-button" onclick="goToHome()">Back to Home</button>
+    <h1 id="roomTitle">Movie Night Room</h1>
+    <div class="room-code"><span id="roomCodeDisplay">XYZ123</span></div>
+  </div>
+
+  <div class="content-container">
+    <div class="suggestions-section">
+      <h2>Suggest Movies</h2>
+      <form class="suggestion-form" onsubmit="submitMovie(event)">
+        <input type="text" class="input-field" id="movieTitle" placeholder="Movie title" required>
+        <button type="submit" class="button">Suggest</button>
+      </form>
+      <div id="movieList"></div>
+    </div>
+
+    <div class="voting-section">
+      <h2>Current Suggestions</h2>
+      <div id="votingList"></div>
+    </div>
+  </div>
+
+  <div class="participants">
+    <h3>Participants</h3>
+    <div class="participant-list" id="participantList"></div>
+  </div>
+</body>
