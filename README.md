@@ -28,4 +28,4 @@ Flique Clique uses a combination of AWS services to deliver a reliable, scalable
 - Vote: Browse the suggestions and cast your vote for the movie you want to watch.
 - Schedule an Event: Choose a movie and set a time for your movie night.
 - Get Notified: Receive notifications for updates and reminders.
-- Enjoy the Show: Gather with your friends and have a fantastic movie night!
+
