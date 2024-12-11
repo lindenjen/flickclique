@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Your Movie Night</title>
+  <link rel="stylesheet" href="movieroom.css">
+  <script src="calendar.js"></script>
+  <link rel="icon" type="image/x-icon" href="flickcliquefavicon.png">
+</head>
+<body>
+  <div class="room-header">
+    <button class="back-button" onclick="goToHome()">Back to Home</button>
+    <h1>Schedule Your Movie Night</h1>
+  </div>
+
+  <div class="content-container">
+    <h2 id="movieName"></h2>
+    <p>Enter your contact information for a reminder the day of your movie night:</p>
+
+    <div id="calendar"></div>
+
+    <form id="reminderForm" onsubmit="submitReminder(event)">
+      <h3>Contact Information</h3>
+      <input type="text" id="contactName" class="input-field" placeholder="Your Name" required>
+      <input type="email" id="contactEmail" class="input-field" placeholder="Your Email" required>
+      <input type="tel" id="contactPhone" class="input-field" placeholder="Your Phone Number" required>
+      <button type="submit" class="button">Set Reminder</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const movieName = sessionStorage.getItem("selectedMovie") || "your movie";
+      document.getElementById("movieName").textContent = `Select a day to watch ${movieName}:`;
+    });
+
+    function submitReminder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("contactName").value;
+      const email = document.getElementById("contactEmail").value;
+      const phone = document.getElementById("contactPhone").value;
+
+      // Placeholder for backend SNS integration
+      alert(`Reminder set for ${name} at ${email} and ${phone}.`);
+
+      // Redirect or reset the form
+      window.location.href = "index.html";
+    }
+
+    function goToHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

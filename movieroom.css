@@ -144,3 +144,133 @@
     background: var(--primary);
     transform: scale(1.05);
 }
+
+.lock-in-section {
+  text-align: center;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected-movie {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 1.5rem; 
+}
+
+#scheduleButton {
+  margin-top: 1rem;
+}
+
+#calendar {
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.nav-button {
+  background: var(--secondary);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background: var(--primary);
+}
+
+.month-year {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Equal columns for all weekdays */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding: 0; /* Remove extra padding */
+}
+
+.day-name {
+  padding: 0.5rem; /* Adjust padding if necessary */
+  text-align: center;
+  font-size: 1rem;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Same as days header */
+  gap: 0.5rem;
+  padding: 0; /* Remove padding for consistent grid */
+}
+
+/* Adjusting .day style for alignment */
+.day, .day-name {
+  padding: 1rem; /* Same padding for day and day name */
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Additional adjustments to day layout */
+.day {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.day:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.day.today {
+  background: var(--primary);
+  color: white;
+}
+
+.day.empty {
+  background: transparent;
+  pointer-events: none;
+}
+
+.day.selected {
+  background: var(--secondary);
+  color: white;
+  font-weight: bold;
+  border: 2px solid var(--primary);
+}
+
+/* Adjust font size for paragraph */
+.content-container p {
+  font-size: 1.5rem; /* Matches the size of the h2 element */
+  font-weight: bold; /* Optional, to make it more visually consistent */
+}
+
+/* Style for the contact form */
+#reminderForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures everything is aligned to the left */
+  gap: 1rem; /* Space between inputs and the button */
+}
+
+/* Ensure the contact form stays to the right */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Keeps layout with two columns */
+  gap: 2rem;
+  align-items: start; /* Align content to the top */
+}
