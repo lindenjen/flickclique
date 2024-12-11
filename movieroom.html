@@ -15,7 +15,7 @@
 
   <div class="content-container">
     <div class="suggestions-section">
-      <h2>Suggest Movies</h2>
+      <h2>Suggest A Flick</h2>
       <form class="suggestion-form" onsubmit="submitMovie(event)">
         <input type="text" class="input-field" id="movieTitle" placeholder="Movie title" required>
         <button type="submit" class="button">Suggest</button>
@@ -29,8 +29,17 @@
     </div>
   </div>
 
+  <div class="lock-in-section">
+    <button id="lockInButton" class="button" onclick="lockInVotes()">Lock In Votes</button>
+    <div id="selectedMovie" class="selected-movie"></div>
+    <button id="scheduleButton" class="button" style="display: none;" onclick="redirectToSchedule()">
+      Schedule Movie Night
+    </button>
+  </div>
+  
   <div class="participants">
     <h3>Participants</h3>
     <div class="participant-list" id="participantList"></div>
   </div>
+  
 </body>

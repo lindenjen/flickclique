@@ -70,15 +70,22 @@ function vote(movieId) {
     const movie = movies.find((m) => m.id === movieId);
 
     if (movie) {
-        if (!movie.voters.includes(userName)) {
+        const voterIndex = movie.voters.indexOf(userName);
+
+        if (voterIndex === -1) {
+            // User hasn't voted for this movie yet, so add their vote
             movie.votes++;
             movie.voters.push(userName);
-            updateMovieLists();
         } else {
-            alert("You have already voted for this movie.");
+            // User has already voted for this movie, so remove their vote
+            movie.votes--;
+            movie.voters.splice(voterIndex, 1);
         }
+
+        updateMovieLists();
     }
 }
+
 
 // Update the movie suggestion and voting lists
 function updateMovieLists() {
@@ -103,6 +110,46 @@ function updateMovieLists() {
         )
         .join("");
 }
+
+function lockInVotes() {
+    if (movies.length === 0) {
+        alert("No movies have been suggested yet.");
+        return;
+    }
+
+    // Determine the movie with the most votes
+    const maxVotes = Math.max(...movies.map((movie) => movie.votes));
+    const topMovies = movies.filter((movie) => movie.votes === maxVotes);
+
+    let selectedMessage;
+    if (maxVotes === 0) {
+        selectedMessage = "No votes have been cast yet.";
+    } else if (topMovies.length > 1) {
+        selectedMessage = `It's a tie! The top movies are: ${topMovies.map((m) => m.title).join(", ")} with ${maxVotes} votes each.`;
+    } else {
+        selectedMessage = `The chosen movie is: "${topMovies[0].title}" with ${maxVotes} votes.`;
+    }
+
+    // Display the selected movie
+    const selectedMovieDiv = document.getElementById("selectedMovie");
+    selectedMovieDiv.textContent = selectedMessage;
+    selectedMovieDiv.style.display = "block";
+
+    if (maxVotes > 0 && topMovies.length === 1) {
+        // Display the schedule button if there's a chosen movie
+        document.getElementById("scheduleButton").style.display = "block";
+    }
+}
+
+
+function redirectToSchedule() {
+    const selectedMovieDiv = document.getElementById("selectedMovie").textContent;
+    const movieNameMatch = selectedMovieDiv.match(/The chosen movie is: "([^"]+)"/);
+    const movieName = movieNameMatch ? movieNameMatch[1] : "your movie";
+    sessionStorage.setItem("selectedMovie", movieName.trim());
+    window.location.href = "schedule.html";
+  }
+  
 
 // Placeholder functions for backend synchronization
 function addParticipant(name) {
